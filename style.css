@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+:root {
+	--dark-cyan: hsl(185, 75%, 39%);
+	--very-dark-desaturated-blue: hsl(229, 23%, 23%);
+	--dark-grayish-blue: hsl(227, 10%, 46%);
+
+	--dark-gray: hsl(0, 0%, 59%);
+	--transparent-dark-gray: hsl(0, 0%, 59%, 0.2);
+	--white: #fff;
+
+	--ff-kumbh-sans: "Kumbh Sans", sans-serif;
+
+	--fw-400: 400;
+	--fw-500: 500;
+	--fw-700: 700;
+
+	--fs-400: 0.85rem;
+	--fs-500: 1rem;
+	--fs-600: 1.25rem;
+	--fs-700: 2.25rem;
+
+	--container-width: 1440px;
+	--container-height: 720px;
+
+	--width-card: 350px;
+	--height-card: 376px;
+}
+
+/*--------------------------*/
+/*  Reset                   */
+/*--------------------------*/
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	color: var(--very-dark-desaturated-blue);
+	min-height: 100vh;
+	font-family: var(--ff-kumbh-sans);
+	font-size: 16px;
+	overflow-x: hidden;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+svg,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/*--------------------------*/
+/*  general                 */
+/*--------------------------*/
+
+.vertical-center {
+	display: grid;
+	align-content: center;
+}
+
+.container {
+	max-width: var(--container-width);
+	width: 100%;
+	margin-inline: auto;
+	min-height: var(--container-height);
+	background-color: var(--dark-cyan);
+	margin-inline: auto;
+	padding-inline: 1em;
+}
+
+.bg-images {
+	background-image: url(images/bg-pattern-top.svg),
+		url(images/bg-pattern-bottom.svg);
+
+	background-position: top -280px left -80px, bottom -350px right -80px;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	/* 	bottom w725 h345 top h 485 w 690	 */
+}
+
+.profile-card {
+	max-width: var(--width-card);
+	min-width: calc(var(--width-card) - 20px);
+	width: 100%;
+	max-height: var(--height-card);
+	height: var(--height-card);
+
+	margin-inline: auto;
+	overflow: hidden;
+}
+.card-layout {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	border-radius: 1rem;
+}
+
+.profile-card-cover {
+	display: grid;
+	position: relative;
+}
+
+.profile-card-cover > * {
+	grid-column: 1/2;
+	grid-row: 1/2;
+}
+
+.profile-dp {
+	border: 0.35em solid var(--white);
+	border-radius: 50vw;
+	margin-inline: auto;
+	background-color: var(--white);
+
+	display: grid;
+	align-self: flex-end;
+	position: absolute;
+	width: 100px;
+	aspect-ratio: 1;
+
+	--x: 50%;
+	--y: 38%;
+	inset-inline-end: var(--x);
+	inset-block-start: var(--y);
+	transform: translate(var(--x), var(--y));
+}
+.content-layout {
+	background-color: var(--white);
+	padding-block-start: 4.5em;
+	display: grid;
+	gap: 1.5em;
+}
+.profile-details {
+	display: grid;
+	gap: 0.75em;
+	align-items: center;
+}
+
+.user-name {
+	font-size: var(--fs-600);
+	font-weight: var(--fw-700);
+	text-align: center;
+}
+
+.user-name > span::before {
+	content: " ";
+	white-space: pre;
+}
+.user-number {
+	font-weight: var(--fw-500);
+	color: var(--dark-grayish-blue);
+}
+.location {
+	color: var(--dark-gray);
+	font-size: var(--fs-400);
+	text-align: center;
+}
+
+.hr-line {
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-color: var(--transparent-dark-gray);
+}
+.social-ranking {
+	display: flex;
+	gap: 3.5em;
+	justify-content: center;
+	margin-block-end: 1.35em;
+}
+
+.rank-number {
+	font-size: var(--fs-600);
+	font-weight: var(--fw-700);
+	text-align: center;
+}
+.rank-title {
+	margin-block-start: 0.25em;
+	color: var(--dark-gray);
+	font-size: var(--fs-400);
+	text-align: center;
+}
+
+@media (min-width: 900px) {
+	.container {
+		max-width: var(--container-width);
+		min-height: var(--container-height);
+	}
+	.bg-images {
+		background-position: top -280px left -80px, bottom -350px right -80px;
+	}
+}
+
+@media (min-width: 375px) {
+	/* .container {
+		min-width: 100dvw;
+		min-height: 100dvh;
+	} */
+	.bg-images {
+		background-position: top -220px left -150px, bottom -200px right -300px;
+	}
+}
