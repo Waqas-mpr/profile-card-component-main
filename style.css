@@ -264,6 +264,24 @@ select {
 }
 
 @media (max-width: 700px) {
+	:root {
+		/* background  */
+		--left-min: -150px;
+		--left-max: -400px;
+		--left-value: -35vw;
+
+		--right-min: -150px;
+		--right-max: -300px;
+		--right-value: -20vw;
+
+		--top-min: -150px;
+		--top-max: -250px;
+		--top-value: -15vh;
+
+		--bottom-min: -200px;
+		--bottom-max: -300px;
+		--bottom-value: -15vh;
+	}
 	.vertical-center {
 		align-content: start;
 	}
@@ -271,8 +289,9 @@ select {
 	.container {
 		display: grid;
 		align-content: center;
+		min-width: 100dvw;
 		width: 100%;
 		height: 100dvh;
-		padding-block: 10em;
+		/* padding-block: 10em; */
 	}
 }
