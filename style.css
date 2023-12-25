@@ -26,11 +26,11 @@
 	--height-card: 376px;
 
 	/* background  */
-	--left-min: -150px;
+	--left-min: -200px;
 	--left-max: -400px;
 	--left-value: -40vw;
 
-	--right-min: -150px;
+	--right-min: -200px;
 	--right-max: -300px;
 	--right-value: -20vw;
 
