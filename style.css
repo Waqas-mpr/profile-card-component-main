@@ -19,11 +19,28 @@
 	--fs-600: 1.25rem;
 	--fs-700: 2.25rem;
 
-	--container-width: 1440px;
+	--container-width: 1320px;
 	--container-height: 720px;
 
 	--width-card: 350px;
 	--height-card: 376px;
+
+	/* background  */
+	--left-min: -150px;
+	--left-max: -400px;
+	--left-value: -40vw;
+
+	--right-min: -150px;
+	--right-max: -300px;
+	--right-value: -20vw;
+
+	--top-min: -245px;
+	--top-max: -350px;
+	--top-value: -20vh;
+
+	--bottom-min: -280px;
+	--bottom-max: -400px;
+	--bottom-value: -30vh;
 }
 
 /*--------------------------*/
@@ -73,6 +90,7 @@ body {
 	min-height: 100vh;
 	font-family: var(--ff-kumbh-sans);
 	font-size: 16px;
+	margin-inline: 2em;
 	overflow-x: hidden;
 }
 
@@ -126,7 +144,7 @@ select {
 	max-width: var(--container-width);
 	width: 100%;
 	margin-inline: auto;
-	min-height: var(--container-height);
+	height: var(--container-height);
 	background-color: var(--dark-cyan);
 	margin-inline: auto;
 	padding-inline: 1em;
@@ -136,11 +154,13 @@ select {
 	background-image: url(images/bg-pattern-top.svg),
 		url(images/bg-pattern-bottom.svg);
 
-	background-position: top -280px left -80px, bottom -350px right -80px;
+	background-position: top
+			clamp(var(--top-min), var(--top-value), var(--top-max)) left
+			clamp(var(--left-min), var(--left-value), var(--left-max)),
+		bottom clamp(var(--bottom-min), var(--bottom-value), var(--bottom-max))
+			right clamp(var(--right-min), var(--right-value), var(--right-max));
 	background-repeat: no-repeat;
 	background-size: contain;
-
-	/* 	bottom w725 h345 top h 485 w 690	 */
 }
 
 .profile-card {
@@ -244,22 +264,15 @@ select {
 	text-align: center;
 }
 
-@media (min-width: 900px) {
-	.container {
-		max-width: var(--container-width);
-		min-height: var(--container-height);
+@media (max-width: 700px) {
+	.vertical-center {
+		align-content: start;
 	}
-	.bg-images {
-		background-position: top -280px left -80px, bottom -350px right -80px;
-	}
-}
 
-@media (min-width: 375px) {
-	/* .container {
-		min-width: 100dvw;
-		min-height: 100dvh;
-	} */
-	.bg-images {
-		background-position: top -220px left -150px, bottom -200px right -300px;
+	.container {
+		display: grid;
+		align-content: center;
+		height: 100dvh;
+		padding-block: 10em;
 	}
 }
